@@ -1,25 +1,11 @@
 const Menu = require('../../models/menu')
 
-// Menu.find({}, function(err, users) {
-//     if(err) console.warn(err);
-//     console.warn(users);
-// })
-
-
-
 function homeController() {
     return {
+        async index(req, res) {
 
-        //  Menu.find({}, function(err, users) {
-        //      if(err) console.warn(err);
-        //      console.warn(users);
-        //  })
-
-
-        async index(req,res) {
             const pizzas = await Menu.find()
-            console.log(pizzas)
-            return res.render('home', { pizzas: pizzas })
+            return res.render('home', { pizzas: pizzas})
         }
     }
 }
